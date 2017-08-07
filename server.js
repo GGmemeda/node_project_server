@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const debug = require('debug')('server');
 const  {PORT}  = require("./handle/const.js");
 const hostname = '127.0.0.1';
-const {log4js,HTTP_logger} = require('./lib/log4.js');
+const {log4js,HTTP_logger} = require('./lib/log4js/main.js');
 
 //log4js日志使用
 app.use(
