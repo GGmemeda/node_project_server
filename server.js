@@ -21,6 +21,9 @@ app.use(
 
 
 //中间件设置
+//路径设置
+app.use(express.static(__dirname,'/'));
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
