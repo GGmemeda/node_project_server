@@ -7,9 +7,9 @@ const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const debug = require('debug')('server');
-const  {PORT}  = require("./handle/const.js");
+const  {PORT}  = require("./lib/const.js");
 const hostname = '127.0.0.1';
-const {log4js,HTTP_logger} = require('./lib/log4js/main.js');
+const {log4js,HTTP_logger} = require('./lib/log4js.js');
 
 //log4js日志使用
 app.use(
@@ -22,8 +22,15 @@ app.use(
 
 //中间件设置
 //路径设置
-app.use(express.static(__dirname,'/'));
-
+// var options = {
+//     dotfiles: 'ignore',
+//     etag: false,
+//     extensions: ['htm', 'html'],
+//     index: false,
+//     maxAge: '1d',
+//     redirect:'@_handle'
+// };
+// app.use(express.static('handle',options));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -35,9 +42,9 @@ app.use(cors());
 //cookie
 app.use(cookieParser());
 //日志
-app.use(require('./handle/logger'));
-
-
+app.use(require('./handle/logger.handle'));
+//错误处理
+app.use(require('./handle/error.handle'))  ;
 //接口文件引入
 require('./api/test.js')(app);
 

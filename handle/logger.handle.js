@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const morgan = require('morgan');
-const {serverTime}=require('../handle/const');
+const {serverTime}=require('../lib/const');
 const debug = require('debug')('logger');
 const fileStreamRotator = require('file-stream-rotator');
 
