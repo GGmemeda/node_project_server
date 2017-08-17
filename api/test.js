@@ -22,7 +22,7 @@ router.get('/123', function (req, res,next) {
        next('/123请求失败,失败')
    }
 });
-router.get('/sss', async (req, res,next) => {
+router.get('/sss',  (req, res,next) => {
     try {
         console.log(req.body.aa);
         let getData=req.body.aa;
