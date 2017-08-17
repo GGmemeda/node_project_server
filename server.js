@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const http = require("http").createServer(app);
-const router=express.Router();
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
@@ -22,15 +21,7 @@ app.use(
 
 //中间件设置
 //路径设置
-// var options = {
-//     dotfiles: 'ignore',
-//     etag: false,
-//     extensions: ['htm', 'html'],
-//     index: false,
-//     maxAge: '1d',
-//     redirect:'@_handle'
-// };
-// app.use(express.static('handle',options));
+app.use( 'lib',express.static(`${__dirname}/public`));
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -42,11 +33,17 @@ app.use(cors());
 //cookie
 app.use(cookieParser());
 //日志
+//接口处理
+app.use('/api',require('./api/test'));
+
+
 app.use(require('./handle/logger.handle'));
+
 //错误处理
-app.use(require('./handle/error.handle'))  ;
+app.use(require('./handle/error.handle'));
+//数据传输统一处理
+app.use(require('./handle/api.handle'));
 //接口文件引入
-require('./api/test.js')(app);
 
 //端口
 app.set('port', process.env.PORT || PORT);

@@ -2,9 +2,10 @@
   "name": "node_server",
   "version": "1.0.0",
   "description": "node  server",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src -d build --source-maps",
+    "start": "node build/index.js"
   },
   "author": "",
   "license": "ISC",
