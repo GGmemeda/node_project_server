@@ -4,6 +4,7 @@
  */
 
 const {HTTP_logger} = require('../lib/log4js');
+const debug = require('debug')('api.handle');
 
 module.exports = function(req,res,next){
     const resData = {
@@ -22,5 +23,6 @@ module.exports = function(req,res,next){
             )
         )
     );
-    res.status(200).send(resData)
+    res.status(200).send(resData.result);
+
 };

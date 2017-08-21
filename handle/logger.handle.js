@@ -7,7 +7,6 @@ const fileStreamRotator = require('file-stream-rotator');
 
 //日志存放目录
 const logger_DIR = path.resolve(__dirname,`../logs/${serverTime}`);
-debugger
 //不存在则创建
 fs.existsSync(logger_DIR) || fs.mkdirSync(logger_DIR);
 
