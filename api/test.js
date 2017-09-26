@@ -27,12 +27,12 @@ router.post('/123', function (req, res,next) {
 router.post('/sss',  (req, res,next) => {
     try {
         console.log(req.body.aa);
-        let getData=req.body.aa;
-       res.data = Object.assign({},questions,getData);
+        let getData=JSON.parse(req.body).aa;
+         res.data = Object.assign({},questions,getData);
         debug(req.data);
         next();
     }catch (error){
-        debug(error)
+        debug(error);
         next('/sss请求失败,失败')
     }
 

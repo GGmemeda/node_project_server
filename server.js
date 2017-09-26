@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const router = express.Router();
 const debug = require('debug')('server');
 const  {PORT}  = require("./lib/const.js");
 const hostname = '127.0.0.1';
@@ -34,16 +35,18 @@ app.use(cors());
 //cookie
 app.use(cookieParser());
 //日志
-//接口处理
-app.use('/api',require('./api/test'));
-
-
 app.use(require('./handle/logger.handle'));
+
+
+
+//接口处理
+app.use('/api/test',require('./api/test'));
+//数据传输统一处理
+app.use(require('./handle/api.handle'));
 
 //错误处理
 app.use(require('./handle/error.handle'));
-//数据传输统一处理
-app.use(require('./handle/api.handle'));
+
 //接口文件引入
 
 //端口
