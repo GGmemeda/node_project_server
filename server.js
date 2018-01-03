@@ -13,7 +13,6 @@ const useConfig=require('./config/index')[process.env.NODE_ENV];
 const debug = require('debug')('server');
 const {PORT} = require('./lib/constant.js');
 const {log4js, HTTP_logger} = require('./lib/log4js.js');
-
 //log4js日志使用
 app.use(
 	log4js.connectLogger(
