@@ -7,6 +7,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const compress = require('compression');
 const helmet = require('helmet');
+const useConfig=require('./config/index')[process.env.NODE_ENV];
 // const router = express.Router();
 // const hostname = '127.0.0.1';
 const debug = require('debug')('server');
@@ -41,7 +42,7 @@ app.use(require('./handle/logger.handle'));
 
 //接口处理
 app.use('/api/test', require('./api/test'));
-app.use('/api/test', require('./api/login'));
+app.use('/api/login', require('./api/login'));
 //数据传输统一处理
 app.use(require('./handle/api.handle'));
 //错误处理
@@ -50,7 +51,7 @@ app.use(require('./handle/error.handle'));
 //接口文件引入
 
 //端口
-app.set('port', process.env.PORT || PORT);
+app.set('port', process.env.PORT || useConfig.port);
 let port = app.get('port');
 let server = http.listen(port, function () {
 
