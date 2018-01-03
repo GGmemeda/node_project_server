@@ -10,9 +10,8 @@ const helmet = require('helmet');
 const useConfig=require('./config/index')[process.env.NODE_ENV];
 // const router = express.Router();
 // const hostname = '127.0.0.1';
-console.log(process.env.NODE_ENV);
+console.log('改来看下12');
 const debug = require('debug')('server');
-const {PORT} = require('./lib/constant.js');
 const {log4js, HTTP_logger} = require('./lib/log4js.js');
 //log4js日志使用
 app.use(

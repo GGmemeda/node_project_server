@@ -12,7 +12,7 @@ fs.existsSync(logger_DIR) || fs.mkdirSync(logger_DIR);
 
 const accessLogStream = fileStreamRotator.getStream({
     date_format:"YYYY-MM-DD",       //日期格式
-    filename:path.resolve(logger_DIR,'messages-%DATE%.log'),     //文件名
+    filename:path.resolve(logger_DIR,'messages.log'),     //文件名
     frequency:"daliy",     //频率---日常
     verbose:false           //很长的日志
 });
