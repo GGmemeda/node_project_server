@@ -1,6 +1,6 @@
 const {ERROR_logger} = require('../lib/log4js');
 
-function errorHandler(err, req, res, next) {
+module.exports=function (err, req, res, next) {
     let resultData;
     if (res.headersSent) {
         resultData = {
@@ -22,5 +22,4 @@ function errorHandler(err, req, res, next) {
     );
     res.status(err.status || 500);
     res.render('error', {error: err});
-}
-module.exports = errorHandler;
+};
