@@ -1,0 +1,24 @@
+{
+  "apps": [
+    {
+      "name": "NodeServer",
+      "cwd": "./",
+      "script": "server.js",
+      "watch": true,
+      "ignore_watch": [
+        "node_modules",
+        ".git"
+      ],
+      "instances": 1,
+      "exec_mode": "cluster",
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": 3000
+      },
+      "env_production": {
+        "NODE_ENV": "production",
+        "PORT": 8000
+      }
+    }
+  ]
+}
