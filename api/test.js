@@ -15,16 +15,20 @@ var questions = [
         num: 678,
         age: 13
     }];
-router.post('/123', function (req, res,next) {
+router.get('/123',async function (req, res,next) {
    try {
-       debug(req);
+       await  debug(req);
+       let getItems=()=>{
+         console.log(1);
+       };
+		   getItems();
        next();
    }catch (error){
        debug(error);
        next('/123请求失败,失败')
    }
 });
-router.post('/sss',  (req, res,next) => {
+router.get('/sss',  (req, res,next) => {
     try {
         console.log(req.body.aa);
         let getData=JSON.parse(req.body).aa;

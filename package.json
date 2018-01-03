@@ -1,14 +1,15 @@
 {
   "name": "node_server",
   "version": "1.0.0",
-  "description": "node  server --harmony",
+  "description": "babel-node  server --harmony",
   "main": "server.js",
   "scripts": {
-    "serve": "node server.js"
+    "server": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "supervisor": "^0.12.0"
   },
   "dependencies": {
