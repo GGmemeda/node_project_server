@@ -4,7 +4,7 @@
   "description": "server --harmony",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon  --exec babel-node  server.js",
+    "server": "nodemon --debug-brk --inspect=3000   --exec babel-node  server.js",
     "online": "pm2 start process.json --env production ",
     "watch": "nodemon  server.js"
   },
