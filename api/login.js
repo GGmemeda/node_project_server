@@ -5,7 +5,7 @@ const debug = require('debug')('login');
 let crypto;
 try {
 		crypto = require('crypto');
-		console.log('node8.9.3支持加密模块');
+		console.log('node8.9.3支持加密');
 } catch (err) {
 		console.log('不支持 crypto!');
 }

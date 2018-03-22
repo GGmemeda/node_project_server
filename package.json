@@ -4,15 +4,17 @@
   "description": "server --harmony",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon --debug-brk --inspect=3000   --exec babel-node  server.js",
+    "server": "nodemon    --inspect-brk --inspect=3000   --exec babel-node  server.js ",
     "online": "pm2 start process.json --env production ",
-    "watch": "nodemon  server.js"
+    "watch": "nodemon  server.js",
+    "start": "node %NODE_DEBUG_OPTION% server.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "cross-env": "^5.1.4",
     "nodemon": "^1.14.7",
     "supervisor": "^0.12.0"
   },

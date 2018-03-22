@@ -7,7 +7,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const compress = require('compression');
 const helmet = require('helmet');
-const useConfig=require('./config/index')[process.env.NODE_ENV];
+const useConfig = require('./config/index')[process.env.NODE_ENV];
 // const router = express.Router();
 // const hostname = '127.0.0.1';
 console.log('改来看下112sad2111，测试');
@@ -15,10 +15,10 @@ const debug = require('debug')('server');
 const {log4js, HTTP_logger} = require('./lib/log4js.js');
 //log4js日志使用
 app.use(
-	log4js.connectLogger(
-		HTTP_logger,
-		{format: ':remote-addr :method :url :status :response-time ms', nolog: '\\.js|\\.html$'}
-	)
+    log4js.connectLogger(
+        HTTP_logger,
+        {format: ':remote-addr :method :url :status :response-time ms', nolog: '\\.js|\\.html$'}
+    )
 );
 //安全防护中间键
 app.use(helmet());
@@ -40,6 +40,8 @@ app.use(cookieParser());
 app.use(require('./handle/logger.handle'));
 
 //接口处理
+app.use("/api", timeOut("10s"));
+
 app.use('/api/test', require('./api/test'));
 app.use('/api/login', require('./api/login'));
 //数据传输统一处理
@@ -54,8 +56,8 @@ app.set('port', process.env.PORT || useConfig.port);
 let port = app.get('port');
 let server = http.listen(port, function () {
 
-		let host = server.address().address;
+    let host = server.address().address;
 
-		let port = server.address().port;
-		console.log('Example app listening at http://%s:%s', host, port);
+    let port = server.address().port;
+    console.log('Example app listening at http://%s:%s', host, port);
 });

@@ -1,5 +1,5 @@
 module.exports = {
-		development: {
+    development: {
 				env: require('./dev.env.js'),
 				port: 3000,
 		},

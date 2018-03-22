@@ -28,7 +28,7 @@ router.get('/123',async function (req, res,next) {
        next('/123请求失败,失败')
    }
 });
-router.get('/sss',  (req, res,next) => {
+router.post('/sss',  (req, res,next) => {
     try {
         console.log(req.body.aa);
         let getData=JSON.parse(req.body).aa;
